@@ -1,0 +1,5 @@
+@import 'utility';
+.game {
+  padding: 5px;
+  @import 'board';
+}

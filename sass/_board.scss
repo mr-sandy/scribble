@@ -1,0 +1,177 @@
+@import 'utility';
+@import 'triangles';
+.outer-board {
+  position: relative;
+  display: table;
+  background-color: rgb(214,203,173);
+  padding: 34px 34px 34px 19px;
+  border: solid 12px rgb(57,93,90);
+  .big-logo {
+    padding: 10px 14px 0 0;
+    float: left;
+    div {
+      background-color: rgb(255,251,231);
+      border: solid 3px rgb(86,85,77);
+      color: rgb(86,85,77);
+      height: 54px;
+      width: 51px;
+      box-sizing: border-box;
+      text-align: center;
+      font-family: Futura, Trebuchet MS, Arial, sans-serif;
+      font-weight: 600;
+      padding-top: 5px;
+      & + div {
+        border-top-width: 2px;
+      }
+      span.letter {
+        font-size: 31px;
+        margin-left: 3spx;
+      }
+      span.score {
+        font-size: 10px;
+        vertical-align: bottom;
+        margin-left: 2px;
+      }
+    }
+  }
+  .logo {
+    position: absolute;
+    text-align: center;
+    color: rgb(73,72,64);
+    font-family: Futura, Trebuchet MS, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: 30px;
+    &.top {
+      @include rotate(180);
+      top: 0;
+      left: 0;
+      right: 30px;
+    }
+    &.right {
+      bottom: 50%;
+      right: -192px;
+      z-index: 100;
+      letter-spacing: 34px;
+      @include rotate(270);
+    }
+    &.bottom {
+      bottom: 0;
+      left: 30px;
+      right: 0;
+    }
+  }
+  .border {
+    float: left;
+    padding: 5px;
+    background-color: rgb(255,250,240);
+    .board {
+      border: solid 2px #555;
+      padding: 2px;
+      background-color: rgb(255,250,240);
+      .row {
+        display: table-row;
+        .square {
+          display: table-cell;
+          position: relative;
+          box-sizing: border-box;
+          height: 50px;
+          width: 46px;
+          text-align: center;
+          vertical-align: middle;
+          border: solid 2px rgb(255,250,240);
+          background-color: rgb(214,203,173);
+          &:before {
+            font-family: sans-serif;
+            text-transform: uppercase;
+            color: rgb(74,65,57);
+            font-size: 7px;
+            line-height: 10px;
+            font-weight: 700;
+          }
+          &.triple-word {
+            @include triple(rgb(255,105,82));
+            background-color: rgb(255,105,82);
+            &:before {
+              content: 'Triple Word Score';
+            }
+          }
+          &.double-word {
+            @include double(rgb(255,190,173));
+            background-color: rgb(255,190,173);
+            &:before {
+              content: 'Double Word Score';
+            }
+          }
+          &.start {
+            @include double(rgb(255,190,173));
+            background-color: rgb(255,190,173);
+            background-image: url("https://pbs.twimg.com/profile_images/2173516694/BlackStar_400x400.PNG");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 90%;
+          }
+          &.triple-letter {
+            @include triple(rgb(57,162,181));
+            background-color: rgb(57,162,181);
+            &:before {
+              content: 'Triple Letter Score';
+            }
+          }
+          &.double-letter {
+            @include double(rgb(198,215,214));
+            background-color: rgb(198,215,214);
+            &:before {
+              content: 'Double Letter Score';
+            }
+          }
+          .top {
+            position: absolute;
+            top: -4px;
+            left: 50%;
+          }
+          .bottom {
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+          }
+          .left {
+            position: absolute;
+            left: -4px;
+            top: 50%;
+          }
+          .right {
+            position: absolute;
+            right: -4px;
+            top: 50%;
+          }
+          .tile {
+            position: absolute;
+            z-index: 50;
+            top: -2px;
+            bottom: -2px;
+            left: -2px;
+            right: -2px;
+            text-align: center;
+            text-transform: uppercase;
+            color: rgb(73,72,64);
+            font-family: Futura, Trebuchet MS, Arial, sans-serif;
+            font-weight: 500;
+            font-size: 32px;
+            padding-top: 4px;
+            background-color: rgb(247,223,173);
+            border-radius: 5px;
+            border-right: 1px solid rgb(207,183,133);
+            border-bottom: 1px solid rgb(207,183,133);
+            .score {
+              font-size: 12px;
+              position: absolute;
+              bottom: 7px;
+              right: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

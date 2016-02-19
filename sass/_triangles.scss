@@ -1,0 +1,129 @@
+@import 'utility';
+@mixin triangle($shiftX, $shiftY) {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform: translateX($shiftX) translateY($shiftY);
+  z-index: 10;
+}
+@mixin triangleUp($shiftX, $shiftY) {
+  @include triangle($shiftX, $shiftY);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+}
+@mixin triangleDown($shiftX, $shiftY) {
+  @include triangle($shiftX, $shiftY);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top-width: 4px;
+  border-top-style: solid;
+}
+@mixin triangleLeft($shiftX, $shiftY) {
+  @include triangle($shiftX, $shiftY);
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right-width: 4px;
+  border-right-style: solid;
+}
+@mixin triangleRight($shiftX, $shiftY) {
+  @include triangle($shiftX, $shiftY);
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+@mixin triple($colour) {
+  .top {
+    border-color: $colour;
+    @include triangleUp(-3px, 0);
+    &:before {
+      border-color: $colour;
+      @include triangleUp(-11px, 0);
+    }
+    &:after {
+      border-color: $colour;
+      @include triangleUp(5px, 0);
+    }
+  }
+  .bottom {
+    border-color: $colour;
+    @include triangleDown(-3px, 0);
+    &:before {
+      border-color: $colour;
+      @include triangleDown(-11px, -4px);
+    }
+    &:after {
+      border-color: $colour;
+      @include triangleDown(5px, -4px);
+    }
+  }
+  .left {
+    border-color: $colour;
+    @include triangleLeft(0, -3px);
+    &:before {
+      border-color: $colour;
+      @include triangleLeft(0, -11px);
+    }
+    &:after {
+      border-color: $colour;
+      @include triangleLeft(0, 5px);
+    }
+  }
+  .right {
+    border-color: $colour;
+    @include triangleRight(0, -3px);
+    &:before {
+      border-color: $colour;
+      @include triangleRight(-4px, -11px);
+    }
+    &:after {
+      border-color: $colour;
+      @include triangleRight(-4px, 5px);
+    }
+  }
+}
+@mixin double($colour) {
+  .top {
+    &:before {
+      border-color: $colour;
+      @include triangleUp(-7px, 0);
+    }
+    &:after {
+      border-color: $colour;
+      @include triangleUp(1px, 0);
+    }
+  }
+  .bottom {
+    &:before {
+      border-color: $colour;
+      @include triangleDown(-7px, -4px);
+    }
+    &:after {
+      border-color: $colour;
+      @include triangleDown(1px, -4px);
+    }
+  }
+  .left {
+    &:before {
+      border-color: $colour;
+      @include triangleLeft(0, -7px);
+    }
+    &:after {
+      border-color: $colour;
+      @include triangleLeft(0, 1px);
+    }
+  }
+  .right {
+    &:before {
+      border-color: $colour;
+      @include triangleRight(-4px, -7px);
+    }
+    &:after {
+      border-color: $colour;
+      @include triangleRight(-4px, 1px);
+    }
+  }
+}

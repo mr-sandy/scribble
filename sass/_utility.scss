@@ -1,0 +1,78 @@
+// CSS3 mixins
+@mixin rotate($degrees) {
+  -webkit-transform: rotate(#{$degrees}deg);
+  -moz-transform: rotate(#{$degrees}deg);
+  -ms-transform: rotate(#{$degrees}deg);
+  -o-transform: rotate(#{$degrees}deg);
+  transform: rotate(#{$degrees}deg);
+  filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{0 - sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{0 - sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+  zoom: 1;
+}
+@mixin translateYRotate($translate, $degrees) {
+  -webkit-transform: translateY($translate) rotate(#{$degrees}deg);
+  -moz-transform: translateY($translate) rotate(#{$degrees}deg);
+  -ms-transform: translateY($translate) rotate(#{$degrees}deg);
+  -o-transform: translateY($translate) rotate(#{$degrees}deg);
+  transform: translateY($translate) rotate(#{$degrees}deg);
+  filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{0 - sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{0 - sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+  zoom: 1;
+}
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+@mixin opacity($opacity: 0.5) {
+  filter:alpha(opacity=($opacity * 100));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) + ")";
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
+@mixin border-box() {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  *behavior: url("/boxsizing.htc");
+}
+@mixin box-shadow($val) {
+  -webkit-box-shadow: $val;
+  -moz-box-shadow: $val;
+  box-shadow: $val;
+}
+@mixin user-select-none() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@mixin border-radius($val) {
+  border-radius: $val;
+  -moz-border-radius: $val;
+  -webkit-border-radius: $val;
+}
+@mixin transition($val) {
+  -webkit-transition: $val;
+  transition: $val;
+}
+@mixin linear-gradient-to-left($from, $to) {
+  background-image: -webkit-linear-gradient(right, $from, $to);
+  background-image: -moz-linear-gradient(right, $from, $to);
+  background-image: -o-linear-gradient(right, $from, $to);
+  background-image: linear-gradient(to left, $from, $to);
+}
+@mixin linear-gradient-to-right($from, $to) {
+  background-image: -webkit-linear-gradient(left, $from, $to);
+  background-image: -moz-linear-gradient(left, $from, $to);
+  background-image: -o-linear-gradient(left, $from, $to);
+  background-image: linear-gradient(to right, $from, $to);
+}
