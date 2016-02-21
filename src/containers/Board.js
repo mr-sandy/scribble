@@ -1,11 +1,16 @@
-import React, { Component, PropTypes } from 'react'
-import Row from '../components/Row'
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import Row from '../components/Row';
+import { selectStartingSquare } from '../actions';
 
 class Board extends Component {
     render() {
-        const { rows } = this.props
+        const { rows } = this.props;
 
-        var rowCells = rows.map(row => <Row {...row} />)
+        var rowCells = rows.map((row, i) =>
+        {
+            return <Row key={i} {...row} rowIndex={i} onSquareClick={c => this.handleSquareClick(c)} />
+        });
 
         return (
             <div className="outer-board">
@@ -28,7 +33,12 @@ class Board extends Component {
                     </div>
                 </div>
             </div>
-        )
+        );
+    }
+
+    handleSquareClick(coords){
+      const { dispatch } = this.props;
+      dispatch(selectStartingSquare(coords.row, coords.column));
     }
 }
 
@@ -39,6 +49,12 @@ Board.propTypes = {
             }).isRequired
             ).isRequired
           })).isRequired,
+};
+
+function select(state) {
+    return {
+      rows : state.get('rows').toJS()
+    };
 }
 
-export default Board
+export default connect(select)(Board);

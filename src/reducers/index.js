@@ -15,4 +15,13 @@ const scrabble = combineReducers({
     rows
 })
 
-export default scrabble
+function reducer(state, action){
+  switch (action.type) {
+      case SELECT_STARTING_SQUARE:
+        return state;
+      default:
+          return state;
+  }
+}
+
+export default reducer;

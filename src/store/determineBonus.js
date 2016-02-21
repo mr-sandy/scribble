@@ -59,7 +59,7 @@ const bonusSquares = [
   { row: 8, column: 12, bonus: 'double-letter' },
   { row: 7, column: 3, bonus: 'double-letter' },
   { row: 7, column: 11, bonus: 'double-letter' },
-  { row: 7, column: 7, bonus: 'start' },
+  { row: 7, column: 7, bonus: 'start' }
 ];
 
 function determineBonus(row, column) {
