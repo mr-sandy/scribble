@@ -2,15 +2,16 @@
  * action types
  */
 
-export const SELECT_PRODUCT_TYPE = 'SELECT_PRODUCT_TYPE'
+export const SELECT_STARTING_SQUARE = 'SELECT_STARTING_SQUARE'
 
 /*
  * action creators
  */
 
-export function selectProductType(productType) {
+export function selectStartingSquare(row, column) {
     return {
-        type: SELECT_PRODUCT_TYPE,
-        productType
+        type: SELECT_STARTING_SQUARE,
+        row,
+        column
     };
 }

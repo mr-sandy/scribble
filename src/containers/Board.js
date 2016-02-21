@@ -1,13 +1,11 @@
 import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
 import Row from '../components/Row'
-
 
 class Board extends Component {
     render() {
         const { rows } = this.props
-        
-        var rowCells = rows.map(row => <Row {...row} />) 
+
+        var rowCells = rows.map(row => <Row {...row} />)
 
         return (
             <div className="outer-board">
@@ -40,12 +38,7 @@ Board.propTypes = {
                     bonus: PropTypes.string.isRequired
             }).isRequired
             ).isRequired
-})).isRequired,
-
+          })).isRequired,
 }
 
-function select(state) {
-    return state
-}
-
-export default connect(select)(Board)
+export default Board

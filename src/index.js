@@ -1,13 +1,13 @@
-import React from 'react'
-import {render} from 'react-dom'
-import {Provider} from 'react-redux'
-import Game from './containers/Game'
-import {createProductStore} from './store'
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import Game from './containers/Game';
+import { createGameStore } from './store';
 import '../sass/styles.scss';
 
-const store = createProductStore()
+const store = createGameStore();
 
-render(
-  <Provider store={store}>
-  <Game/>
-</Provider>, document.getElementById('app'))
+render( <Provider store={store} >
+          <Game />
+        </Provider>, document.getElementById('app')
+      );

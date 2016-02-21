@@ -1,27 +1,10 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'
 import { routeReducer } from 'redux-simple-router'
-import { SELECT_PRODUCT_TYPE } from '../actions'
+import { SELECT_STARTING_SQUARE } from '../actions'
 
-function productsPath(state =''){
-    return state
-}
-
-function productTypes(state = []) {
-    return state
-}
-
-function selectedProduct(state = '', action) {
+function rows(state = [], action) {
     switch (action.type) {
-        case SELECT_PRODUCT_TYPE:
-            return ''
-        default:
-            return state
-    }
-}
-
-function selectedProductType(state = '', action) {
-    switch (action.type) {
-        case SELECT_PRODUCT_TYPE:
+        case SELECT_STARTING_SQUARE:
             return action.productType
         default:
             return state
@@ -29,11 +12,7 @@ function selectedProductType(state = '', action) {
 }
 
 const scrabble = combineReducers({
-    productsPath,
-    productTypes,
-    selectedProduct,
-    selectedProductType
+    rows
 })
 
 export default scrabble
-

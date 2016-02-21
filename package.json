@@ -35,11 +35,13 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "history": "^1.17.0",
+    "immutable": "^3.7.5",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-redux": "^4.0.6",
     "react-router": "^1.0.3",
     "redux": "^3.0.5",
+    "redux-immutable": "^3.0.3",
     "redux-simple-router": "^1.0.2"
   }
 }

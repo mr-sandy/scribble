@@ -1,10 +1,10 @@
-import scrabble from '../reducers'
-import { createStore, applyMiddleware } from 'redux'
-import logger from '../middleware/logger'
+import scrabble from '../reducers';
+import { createStore, applyMiddleware } from 'redux';
+import logger from '../middleware/logger';
+import initialData from './initialData';
 
-const initialData = {}
-const createStoreWithMiddleware = applyMiddleware(logger)(createStore)
+const createStoreWithMiddleware = applyMiddleware(logger)(createStore);
 
-export function createProductStore() {
-    return createStoreWithMiddleware(scrabble, initialData)
+export function createGameStore() {
+  return createStoreWithMiddleware(scrabble, initialData);
 }
