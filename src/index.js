@@ -1,13 +1,22 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import Game from './containers/Game';
-import { createGameStore } from './store';
-import '../sass/styles.scss';
+import App from './containers/App';
+import createStore  from './store';
 
-const store = createGameStore();
+const store = createStore({});
+const rootEl = document.getElementById('root');
 
-render( <Provider store={store} >
-          <Game />
-        </Provider>, document.getElementById('app')
-      );
+render(
+    <App store={store} />,
+    rootEl
+);
+
+if (module.hot) {
+    module.hot.accept('./containers/App', () => {
+        const NextApp = require('./containers/App').default;
+        render(
+            <NextApp store={store} />,
+            rootEl
+        );
+    });
+}

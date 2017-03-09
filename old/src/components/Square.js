@@ -2,8 +2,13 @@ import React, { Component, PropTypes } from 'react';
 
 class Square extends Component {
     render() {
-        const { bonus, tile } = this.props;
-        const className = "square " + bonus;
+        const { bonus, tile, selected } = this.props;
+        let className = "square " + bonus;
+
+        if (selected)
+        {
+          className = className + ' selected';
+        }
 
         const theTile = tile
           ? <div className="tile">{tile.letter}<span className="score">{tile.score}</span></div>

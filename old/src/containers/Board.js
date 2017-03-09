@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Row from '../components/Row';
 import { selectStartingSquare } from '../actions';
 
+//git+ minimap
+
 class Board extends Component {
     render() {
         const { rows } = this.props;
@@ -43,7 +45,7 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-        rows : PropTypes.arrayOf(PropTypes.shape({
+        rows: PropTypes.arrayOf(PropTypes.shape({
             columns: PropTypes.arrayOf(PropTypes.shape({
                     bonus: PropTypes.string.isRequired
             }).isRequired
@@ -53,7 +55,7 @@ Board.propTypes = {
 
 function select(state) {
     return {
-      rows : state.get('rows').toJS()
+      rows: state.get('rows').toJS()
     };
 }
 
