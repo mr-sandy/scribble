@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
-
-const blah = (state = {}, action) => {
-    return state;
-}
+import players from './players';
+import game from './game';
+import board from './board';
 
 const reducer = combineReducers({
-    blah
+    players,
+    game,
+    board
 });
 
 export default reducer;
