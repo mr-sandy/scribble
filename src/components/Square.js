@@ -1,7 +1,7 @@
 import React from 'react';
 import { TopTriangles, BottomTriangles, LeftTriangles, RightTriangles } from './helpers/triangles';
 import { getColour, getCaption } from './helpers/bonuses';
-// import Tile from './Tile';
+import Tile from '../containers/Tile';
 
 const styles = {
     base: {
@@ -26,19 +26,18 @@ const styles = {
     }
 };
 
-const Square = ({ square }) => {
-
-    const colour = getColour(square.bonus);
-    const style = { ...styles.base, backgroundColor: colour };
-
-    return (
+const Square = props => {
+    const {  connectDropTarget, bonus, tile } = props;
+    const style = { ...styles.base, backgroundColor: getColour(bonus) };
+    
+    return connectDropTarget(
         <div style={style}>
-            <TopTriangles bonus={square.bonus} />
-            <BottomTriangles bonus={square.bonus} />
-            <LeftTriangles bonus={square.bonus} />
-            <RightTriangles bonus={square.bonus} />
-            <span style={styles.caption}>{getCaption(square.bonus)}</span>
-            {/*<Tile letter="T" score="2" />*/}
+            <TopTriangles bonus={bonus} />
+            <BottomTriangles bonus={bonus} />
+            <LeftTriangles bonus={bonus} />
+            <RightTriangles bonus={bonus} />
+            <span style={styles.caption}>{getCaption(bonus)}</span>
+            {tile ? <Tile {...tile} /> : false}
         </div>
     );
 }

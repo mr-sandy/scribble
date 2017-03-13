@@ -1,6 +1,8 @@
 import React from 'react';
 import Board from '../containers/Board';
 import Players from '../containers/Players';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
 
 const styles = {
     board: {
@@ -26,4 +28,4 @@ const Game = () => {
     );
 }
 
-export default Game;
+export default DragDropContext(HTML5Backend)(Game);

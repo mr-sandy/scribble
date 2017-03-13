@@ -6,16 +6,12 @@ const style = {
     padding: '2px'
 };
 
-const Board = ({ board }) => {
-    const rows = board.map((row, i) => <Row key={i} row={row} />);
-
-    return (
-        <OuterBoard>
+const Board = ({ board }) => (
+    <OuterBoard>
         <div style={style}>
-            {rows}
+            {board.map((row, i) => <Row key={i} row={row} />)}
         </div>
-        </OuterBoard>
-    );
-}
+    </OuterBoard>
+);
 
 export default Board;

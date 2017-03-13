@@ -2,16 +2,16 @@ import React from 'react';
 
 const styles = {
     tile: {
-        // position: 'absolute',
-        // zIndex: '50',
-        // top: '-2px',
-        // bottom: '-2px',
-        // left: '-2px',
-        // right: '-2px',
-        position: 'relative',
+        position: 'absolute',
+        zIndex: '50',
+        top: '-2px',
+        bottom: '-2px',
+        left: '-2px',
+        right: '-2px',
+        // position: 'relative',
         display: 'inline-block',
-        height: '50px',
-        width: '50px',
+        // height: '50px',
+        // width: '50px',
         textAlign: 'center',
         textTransform: 'uppercase',
         color: 'rgb(73,72,64)',
@@ -32,12 +32,11 @@ const styles = {
     }
 };
 
-const Tile = ({ letter, value }) => {
-    return (
+const Tile = ({ connectDragSource, letter, value }) => (connectDragSource(
         <div style={styles.tile}>{letter}
             <span style={styles.score}>{value}</span>
         </div>
-    );
-}
+    )
+);
 
 export default Tile;

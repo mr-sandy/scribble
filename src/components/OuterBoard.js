@@ -1,4 +1,5 @@
 import React from 'react';
+import Clear from './Clear';
 
 const styles = {
     outer: {
@@ -13,8 +14,6 @@ const styles = {
         float: 'left'
     }
 };
-
-const Clear = () => <div style={{ clear: 'both' }}></div>;
 
 const OuterBoard = ({ children }) => {
     return (
